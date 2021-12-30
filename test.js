@@ -1,3 +1,4 @@
+const assert = require('assert')
 const { createProgram } = require('.')
 
 // Trampoline the program forward and log some stuff
@@ -15,18 +16,27 @@ const advanceAll = (advance) => {
 }
 
 console.log(' -----------  1  --------------')
-advanceAll(createProgram`
-  123
+assert.equal(
+  advanceAll(createProgram`
+    123
+    456
+  `),
   456
-`)
+)
 
 console.log(' -----------  2  --------------')
-advanceAll(createProgram`
-  (fn hello [] "world")
-  (hello)
-`)
+assert.equal(
+  advanceAll(createProgram`
+    (fn hello [] "world")
+    (hello)
+  `),
+  "world"
+)
 
 console.log(' -----------  3  --------------')
-advanceAll(createProgram`
-  1 (do 2 (do (do 3 4) 5) 6)
-`)
+assert.equal(
+  advanceAll(createProgram`
+    1 (do 2 (do (do 3 4) 5) 6)
+  `),
+  6
+)
