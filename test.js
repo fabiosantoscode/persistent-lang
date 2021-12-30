@@ -1,5 +1,5 @@
-const assert = require('assert')
-const { createProgram } = require('.')
+import assert from 'assert'
+import { createProgram } from './lib/core.js'
 
 // Trampoline the program forward and log some stuff
 const advanceAll = (advance) => {

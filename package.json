@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "./lib/core.js",
+  "type": "module",
   "scripts": {
     "test": "node ./test.js"
   },
