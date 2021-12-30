@@ -1,0 +1,11 @@
+{
+  "name": "persistent-lang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/core.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "author": "Fábio Santos <fabiosantosart@gmail.com>",
+  "license": "MIT"
+}
