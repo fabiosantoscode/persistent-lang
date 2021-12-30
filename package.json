@@ -8,5 +8,8 @@
     "test": "node ./test.js"
   },
   "author": "Fábio Santos <fabiosantosart@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "moo": "^0.5.1"
+  }
 }
