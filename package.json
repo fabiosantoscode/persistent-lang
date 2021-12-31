@@ -2,14 +2,26 @@
   "name": "persistent-lang",
   "version": "1.0.0",
   "description": "",
+  "author": "Fábio Santos <fabiosantosart@gmail.com>",
+  "license": "MIT",
   "main": "./lib/core.js",
   "type": "module",
   "scripts": {
-    "test": "node ./test.js"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "format": "prettier --no-semi --single-quote --trailing-comma es5 --write .",
+    "prepare": "husky install",
+    "pre-commit": "npm run test && lint-staged"
   },
-  "author": "Fábio Santos <fabiosantosart@gmail.com>",
-  "license": "MIT",
+  "lint-staged": {
+    "*.js": "prettier --no-semi --single-quote --trailing-comma es5 --write"
+  },
   "dependencies": {
     "moo": "^0.5.1"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "jest": "^27.4.5",
+    "lint-staged": "^12.1.4",
+    "prettier": "^2.5.1"
   }
 }
