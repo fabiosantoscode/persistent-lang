@@ -1,13 +1,13 @@
 import assert from 'assert'
-import { createProgram } from './lib/core.js'
+import { createProgram, advance } from './lib/core.js'
 
 // Trampoline the program forward and log some stuff
-const advanceAll = (advance) => {
+const advanceAll = (program) => {
   let execLimit = 100
 
   let yielded, state
   while (true) {
-    ([yielded, state] = advance(state))
+    ([yielded, state] = advance(program, state))
     if (yielded) console.log({ yielded })
     if (state == null) return yielded
 
