@@ -10,7 +10,7 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 jest",
     "format": "prettier --no-semi --single-quote --trailing-comma es5 --write lib",
     "prepare": "husky install",
-    "pre-commit": "npm run test --collectCoverage && lint-staged"
+    "pre-commit": "npm run test -- --collectCoverage && lint-staged"
   },
   "lint-staged": {
     "*.js": "prettier --no-semi --single-quote --trailing-comma es5 --write"
