@@ -11,7 +11,7 @@ Here are some examples that don't currently work because this is WIP AF:
 Here's a program that controls a subscription to a paid membership
 
 ```javascript
-import { parse, createProgram, Ticket } from 'persistent-lang'
+import { PersistentMachine } from 'persistent-lang'
 import { saveStateToDisk, loadStateFromDisk } from './your-stuff.js'
 import {
   charge,
