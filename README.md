@@ -11,7 +11,7 @@ Here are some examples that don't currently work because this is WIP AF:
 Here's a program that controls a subscription to a paid membership
 
 ```javascript
-import { PersistentMachine } from 'persistent-lang'
+import { createProgram } from 'persistent-lang'
 import { saveStateToDisk, loadStateFromDisk } from './your-stuff.js'
 import {
   charge,
@@ -20,7 +20,7 @@ import {
   GRACE_PERIOD_MS,
 } from './your-subscription-management.js'
 
-const code = parse`
+const machine = createProgram`
   (if (== (chargeCustomer customerId) "charge-failed")
     (exit "charge-failed"))
 
@@ -48,10 +48,7 @@ const code = parse`
 
   (fn chargeCustomer []
     (yield "chargeCustomer"))
-`
-
-const machine = new PersistentMachine({
-  code,
+`({
   yieldPoints: {
     async chargeCustomer(state) {
       const customerId = state.processId
